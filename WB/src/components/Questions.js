@@ -21,17 +21,15 @@ this.props.actions.setGraph(ResetChart);
 
 
     render() {
-        console.log("FORM PROPS",this.props);
+       
         const {questions,actions} = this.props;
         const { handleSubmit, load, pristine, reset, submitting,correctAns } = this.props;
         const margin = {top: 20, right: 20, bottom: 30, left: 40};
-        console.log("result",this.props.result);
         const answers=[]; 
 
-        console.log("correct answers",answers);
+        
         const data=this.props.result;
  
-        console.log("render",this.props);
         return (
             <div className="col-xs-12 col-sm-12">
                 <h1 className="Header">The Quiz</h1>
@@ -78,13 +76,12 @@ this.props.actions.setGraph(ResetChart);
 
 }
 
-
-
-
+//==========================yet to be implented============================
 
 const validate = values => {
     
     console.log("values from the validate function", values); 
+
 }
 
 export default reduxForm({

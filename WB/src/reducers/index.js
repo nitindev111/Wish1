@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import questionReducer from './counter';
+import questionReducer from './reducer';
 import { reducer as formReducer } from 'redux-form'
 
 /**

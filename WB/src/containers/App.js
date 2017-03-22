@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as CounterActions from '../actions/CounterActions';
+import * as CounterActions from '../actions/QuestionActions';
 import Counter from '../components/Counter';
 import Footer from '../components/Footer';
 import Questions from '../components/Questions'
