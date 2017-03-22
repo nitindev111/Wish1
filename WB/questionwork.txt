@@ -1,0 +1,90 @@
+
+
+
+
+
+
+
+import React, { Component } from 'react';
+import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import ReactDOM from "react-dom";
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux'
+
+class Questions extends Component {
+    constructor(props) {
+        super(props);
+        //  this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    render() {
+        const {questions} = this.props;
+        const { handleSubmit, load, pristine, reset, submitting } = this.props
+        console.log("render", questions);
+        return (
+            <form onSubmit={handleSubmit}>
+                {questions.map(question=>
+                <div>
+
+                        <label>{question.question}</label>
+                       
+                        <Field name={question.qId} type="text" component="select">    
+                        <option>SELECT</option>
+                         {question.options.map(option=>
+                        <option>{option}
+                           
+                        </option>
+                        
+                         )}
+                    </Field>
+                       
+                   
+                </div>
+                )}
+                
+                <button type="submit" disabled={submitting}>Submit</button>
+            </form>
+
+
+        )
+    }
+
+
+}
+
+/*const renderField = ({questions, input, label, type, meta: { touched, error } }) =>
+    (
+        <div>
+            {questions.map((question, index) =>
+                <div>
+                    <label>{question.question}</label>
+                    <select>
+                        <option value="">Select option</option>
+                        {question.options.map(option =>
+                            <option value={option}>{option}</option>
+                        )}
+                    </select>
+                </div>
+            )}
+
+        </div>
+    )*/
+
+
+
+const validate = values => {
+    console.log("values", values);
+    const errors = {};
+    if (!values.Questions) {
+        errors.Questions = 'Required'
+    }
+    return errors
+
+console.log(errors); 
+}
+
+export default reduxForm({
+    form: "questions",
+    validate
+})(Questions)
+
