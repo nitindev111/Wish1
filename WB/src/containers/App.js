@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as CounterActions from '../actions/QuestionActions';
-import Counter from '../components/Counter';
-import Footer from '../components/Footer';
+import * as QuestionActions from '../actions/QuestionActions';
+
 import Questions from '../components/Questions'
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
@@ -81,14 +80,14 @@ function mapStateToProps(state) {
 /**
  * Turns an object whose values are 'action creators' into an object with the same
  * keys but with every action creator wrapped into a 'dispatch' call that we can invoke
- * directly later on. Here we imported the actions specified in 'CounterActions.js' and
+ * directly later on. Here we imported the actions specified in 'QuestionActions.js' and
  * used the bindActionCreators function Redux provides us.
  *
  * More info: http://redux.js.org/docs/api/bindActionCreators.html
  */
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(CounterActions, dispatch)
+    actions: bindActionCreators(QuestionActions, dispatch)
   };
 }
 
