@@ -14,7 +14,8 @@ const initialState={
 export default function QuestionReducer(state = initialState, action) {
   switch (action.type) {
  case SET_GRAPH_DATA:
-    return {...state,Result:action.payload}
+      return Object.assign({},state,{
+        Result:action.payload})
   default:
     return state;
   }
