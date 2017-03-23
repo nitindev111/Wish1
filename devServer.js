@@ -5,7 +5,7 @@ const config = require('./webpack.config.dev');
 
 const app = express();
 const compiler = webpack(config);
-
+const port=process.env.PORT || 5000;
 const host = 'http://localhost';
 //const port = process.env.npm_config_port ? process.env.npm_config_port : 3000;
 
