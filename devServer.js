@@ -7,7 +7,7 @@ const app = express();
 const compiler = webpack(config);
 
 const host = 'http://localhost';
-const port = process.env.npm_config_port ? process.env.npm_config_port : 3000;
+//const port = process.env.npm_config_port ? process.env.npm_config_port : 3000;
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
@@ -20,7 +20,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(port, 'localhost', (err) => {
+app.listen(process.env.PORT || 5000, 'localhost', (err) => {
   if (err) {
     console.log(err);
     return;
