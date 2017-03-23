@@ -6,8 +6,10 @@ const config = require('./webpack.config.dev');
 const app = express();
 const compiler = webpack(config);
 //const port=process.env.PORT || 5000;
-const host = 'http://localhost';
+const host = "0.0.0.0";
+
 app.set('port', (process.env.PORT || 5000));
+
 
 //const port = process.env.npm_config_port ? process.env.npm_config_port : 3000;
 
@@ -20,7 +22,7 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
-});
+}); 
 
 app.listen(app.get('port'), 'localhost', (err) => {
   if (err) {
